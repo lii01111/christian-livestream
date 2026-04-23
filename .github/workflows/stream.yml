@@ -16,7 +16,7 @@ jobs:
 
       - name: Download Video
         run: |
-          yt-dlp -f mp4 https://www.youtube.com/watch?v=https://youtu.be/Zyd1iug_Ay4 -o video.mp4
+          yt-dlp -f mp4 https://www.youtube.com/watch?v=Zyd1iug_Ay4 -o video.mp4
 
       - name: Stream to YouTube
         run: |
