@@ -15,10 +15,9 @@ jobs:
           pip install yt-dlp
 
       - name: Download Video
-        run: |
-          yt-dlp -f mp4 https://www.youtube.com/watch?v=Zyd1iug_Ay4 -o video.mp4
+  run: |
+    yt-dlp -f "bv*+ba/b" https://www.youtube.com/watch?v=Zyd1iug_Ay4 -o video.mp4
 
-      - name: Stream to YouTube
-        run: |
-          ffmpeg -re -stream_loop -1 -i video.mp4 -t 18000 -c copy -f flv rtmp://a.rtmp.youtube.com/live2/4a7b-hdpm-kgzv-7c3m-8kuw
-
+- name: Stream to YouTube
+  run: |
+    ffmpeg -re -stream_loop -1 -i video.mp4 -t 18000 -c:v libx264 -preset veryfast -b:v 1500k -c:a aac -b:a 128k -f flv rtmp://a.rtmp.youtube.com/live2/YOUR-STREAM-KEY
